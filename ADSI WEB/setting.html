@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings - SmartLib</title>
+  <!-- Tambahkan Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4ff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: #e7ebf7;
+    }
+
+    .back-icon {
+      font-size: 24px;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .logo {
+      margin: auto;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .profile-card {
+      background-color: #d1d9ff;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 20px;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-info h2 {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+
+    .profile-info p {
+      color: #444;
+    }
+
+    .edit-icon {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .menu {
+      margin: 0 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .menu-item span {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .menu-item i {
+      margin-right: 12px;
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .menu-item .arrow {
+      color: #888;
+      font-size: 18px;
+    }
+
+    .menu-item:hover {
+      background-color: #f3f6ff;
+      border-radius: 10px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="back-icon"><a class="fas fa-arrow-left" href="dashboard.html"></a></div>
+    <div class="logo">
+      <img src="logo.png" alt="SmartLib Logo" width="100vh">
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-pic">
+      <img src="profile.jpg" alt="Foto Profil">
+    </div>
+    <div class="profile-info">
+      <h2>Gojo Satoru</h2>
+      <p>gojosatoru@gmail.com</p>
+    </div>
+    <a href="edit-profile.html" class="edit-icon"><i class="fas fa-pen"></i></a>
+  </div>
+
+  <div class="menu">
+    <div class="menu-item">
+      <span><i class="fas fa-file-invoice"></i> Riwayat Transaksi</span>
+      <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+    </div>
+    <div class="menu-item">
+      <span><i class="fas fa-book-open-reader"></i> Riwayat Bacaan Buku</span>
+      <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+    </div>
+    <div class="menu-item">
+      <span><i class="fas fa-book-medical"></i> Pengajuan Buku</span>
+      <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+    </div>
+    <div class="menu-item">
+      <span><i class="fas fa-user-slash"></i> Hapus Akun</span>
+      <span class="arrow"><i class="fas fa-chevron-right"></i></span>
+    </div>
+  </div>
+
+</body>
+</html>

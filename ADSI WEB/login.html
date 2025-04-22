@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f8fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .login-container p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #673ab7;
+      font-weight: 600;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .login-container a {
+      color: #7c4dff;
+      text-decoration: none;
+      font-size: 14px;
+      float: right;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-google {
+      width: 100%;
+      padding: 12px;
+      background: white;
+      color: #ff7043;
+      border: 2px solid #ff7043;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-google img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .register {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .register a {
+      color: #3f51b5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Hello! Welcome back.</h2>
+    <p>Login with the data you entered during Registration.</p>
+
+    <form onsubmit="validateLogin(event)">
+      <label for="email">Email Address <span style="color:red">*</span></label>
+      <input type="email" id="email" name="email" placeholder="gojosatoru.com" required>
+
+      <label for="password">Password <span style="color:red">*</span></label>
+      <input type="password" id="password" name="password" required>
+
+      <a href="#">Forgot Password?</a>
+
+      <button type="submit" class="btn-login">Login Now</button>
+
+      <button type="button" class="btn-google">
+        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google icon">
+        Continue with Google
+      </button>
+
+      <div class="register">
+        Don’t have an Account? <a href="sign-in.html">REGISTER</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validateLogin(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!emailPattern.test(email)) {
+        alert("Email tidak valid. Contoh: nama@email.com");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password harus minimal 6 karakter.");
+        return;
+      }
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

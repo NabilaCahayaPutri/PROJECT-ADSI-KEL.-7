@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartLib Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      background-color: #f5f5f5;
+    }
+
+    .sidebar {
+      width: 230px;
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      border-right: 1px solid #ddd;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .logo img {
+      width: 35px;
+    }
+
+    .logo span {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2e2e2e;
+    }
+
+    .menu {
+      flex-grow: 1;
+    }
+
+    .menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      text-decoration: none;
+      color: #333;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: background 0.2s;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background-color: #f0f0f0;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar .profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .search-bar select,
+    .search-bar input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .search-bar button {
+      background-color: #ff754c;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .books-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .books-row {
+        display: flex;
+        flex-direction: row; 
+        gap: 20px;
+    }
+
+    .book {
+        text-align: center;
+        width: 150px;
+    }
+
+    .book img {
+        width: 100%;
+        border-radius: 8px;
+    }      
+
+    .book-title {
+        margin-top: 8px;
+        font-weight: 600;
+    }
+
+    .book-author {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .profile img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="SmartLib" />
+      <span>SmartLib</span>
+    </div>
+    <div class="menu">
+      <a href="#" class="active"><i class="fas fa-home"></i> My Dashboard</a>
+      <a href="#"><i class="fas fa-heart"></i> Favourites</a>
+      <a href="#"><i class="fas fa-lightbulb"></i> Make Suggestion</a>
+    </div>
+    <div class="menu">
+      <a href="setting.html"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="top-bar">
+      <h1>Dashboard</h1>
+      <div class="profile">
+        <a class="fas fa-arrow-left" href="dashboard.html" style="text-decoration: none; color: #333;"></a>
+        <span>Gojo Satoru</span>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <select>
+        <option>All Categories</option>
+        <option>Self Improvement</option>
+        <option>Design</option>
+      </select>
+      <input type="text" placeholder="Find the book you like..." />
+      <button>Search</button>
+    </div>
+
+    <div class="section-title">
+      <span>Popular</span>
+    </div>
+    
+    <div class="books-container">
+      <!-- Baris Buku 1 -->
+      <div class="books-row">
+      <div class="book">
+        <img src="https://awsimages.detik.net.id/community/media/visual/2024/04/20/top-7-cover-terbaik-manga-one-piece-6.webp?w=700&q=90" alt="">
+        <div class="book-title">ONE PIECE 6</div>
+        <div class="book-author">Eiichiro Oda</div>
+      </div>
+      <div class="book">
+        <img src="https://bukukita.com/babacms/displaybuku/96604_f.jpg" alt="">
+        <div class="book-title">SIMPLE LOVE</div>
+        <div class="book-author">Ema Toyama</div>
+      </div>
+      <div class="book">
+        <img src="https://bukukita.com/babacms/displaybuku/111253_f.jpg" alt="">
+        <div class="book-title">CONNECT</div>
+        <div class="book-author">Manatsu Suzuki</div>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/710tMhx+HaL._AC_UF1000,1000_QL80_.jpg" alt="">
+        <div class="book-title">BORUTO</div>
+        <div class="book-author">Masashi Kishimoto</div>
+      </div>
+      <div class="book">
+        <img src="https://inc.mizanstore.com/aassets/img/com_cart/produk/GRK-128.jpg" alt="">
+        <div class="book-title">ATTACK ON TITAN</div>
+        <div class="book-author">Hajime Isayama</div>
+      </div>
+      <div class="books-row"></div>
+      <div class="book">
+        <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/114/MTA-154862988/gramedia_gramedia_full01.jpg" alt="">
+        <div class="book-title">BLACK CLOVER</div>
+        <div class="book-author">Yuki Tabata</div>
+      </div>
+      <div class="book">
+        <img src="https://i.ebayimg.com/images/g/igYAAOSwuvBhHCUR/s-l1200.jpg" alt="">
+        <div class="book-title">JUJUTSU KAISEN</div>
+        <div class="book-author">Gege Akutami</div>
+      </div>
+      <div class="book">
+        <img src="https://m.media-amazon.com/images/I/71kN7vtOdGL._AC_UF1000,1000_QL80_.jpg" alt="">
+        <div class="book-title">SPY X FAMILY</div>
+        <div class="book-author">Tatsuya Endo</div>
+        </div>
+      </div>
+
+      <div class="books-row">
+        <div class="book">
+          <img src="https://i.pinimg.com/236x/df/c9/38/dfc938339185dc25f764d7e080899d24.jpg" alt="">
+          <div class="book-title">>NARUTO</div>
+          <div class="book-author">Masashi Kishimoto</div>
+        </div>
+        <div class="book">
+            <img src="https://www.pro-bems.com/IMAGES/images_1/TR04735530/m/TR04735530_1.jpg" alt="">
+            <div class="book-title">DEMON SLAYER</div>
+            <div class="book-author">Koyoharu Gotouge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

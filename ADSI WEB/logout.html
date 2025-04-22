@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfcfc;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #5a51e3;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .sidebar a,
+    .sidebar button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      text-align: left;
+      margin-bottom: 15px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .sidebar button:hover,
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .btn-logout {
+      margin-top: auto;
+      padding: 10px;
+      background-color: #f44336;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-logout:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>SmartLib</h2>
+    <a href="#">My Dashboard</a>
+    <a href="#">Favourites</a>
+    <a href="#">Make Suggestion</a>
+    <a href="#">Settings</a>
+    <button id="logoutBtn" class="btn-logout">Logout</button>
+  </div>
+
+  <div class="main-content">
+    <h1>Welcome to the Dashboard!</h1>
+    <p>Halo, selamat datang kembali!</p>
+  </div>
+
+  <script>
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+      // Kalau belum login, langsung redirect
+      alert("Anda belum login. Silakan login dulu.");
+      window.location.href = "login.html";
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      const confirmLogout = confirm("Yakin ingin logout?");
+      if (confirmLogout) {
+        localStorage.removeItem("user");
+        window.location.href="login.html";
+      }
+    });
+  </script>
+</body>
+</html>

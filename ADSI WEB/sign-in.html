@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfcfc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #4e3cb0;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #836fff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 14px;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+
+    .forgot a {
+      text-decoration: none;
+      color: #5a51e3;
+    }
+
+    .btn-signup {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn-google {
+      width: 100%;
+      padding: 12px;
+      background: white;
+      color: #ff7043;
+      border: 2px solid #ff7043;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-google img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .back-login {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #5a51e3;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Create Account Now!</h2>
+    <p class="subtitle">Create Account Now</p>
+
+    <form id="signupForm">
+      <label for="fullname">Full Name<span style="color:red">*</span></label>
+      <input type="text" id="fullname" name="fullname" placeholder="Your Name" required>
+
+      <label for="phone">Phone Number<span style="color:red">*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx" required>
+
+      <label for="email">Email Address<span style="color:red">*</span></label>
+      <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+
+      <label for="password">Password<span style="color:red">*</span></label>
+      <input type="password" id="password" name="password" placeholder="********" required>
+
+      <div class="forgot">
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn-signup">Sign Up</button>
+
+      <button type="button" class="btn-google">
+        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google icon">
+        Continue with Google
+      </button>
+      
+      <a class="back-login" href="login.html">Back to login page</a>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("fullname").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (name && phone && email && password) {
+        localStorage.setItem("user", JSON.stringify({ name, phone, email }));
+
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Harap isi semua kolom terlebih dahulu!");
+      }
+    });
+  </script>
+</body>
+</html>
