@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Data Buku</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-1/5 bg-indigo-100 p-4">
+    <h1 class="text-2xl font-bold mb-6">ADMIN</h1>
+    <nav class="space-y-4">
+      <div class="font-semibold">ADMIN</div>
+      <ul class="mb-6">
+        <li><a href="#" class="block text-indigo-900">Dashboard</a></li>
+      </ul>
+      <div class="font-semibold">MENU</div>
+      <ul class="mb-6 space-y-1">
+        <li><a href="#" class="block text-indigo-900 font-bold">Data Buku</a></li>
+        <li><a href="#" class="block text-indigo-900">Data Pengguna</a></li>
+        <li><a href="#" class="block text-indigo-900">Data Peminjaman</a></li>
+        <li><a href="#" class="block text-indigo-900">Menyusun Laporan</a></li>
+        <li><a href="#" class="block text-indigo-900">Mengelola Pembelian</a></li>
+      </ul>
+      <div class="font-semibold">SETTING</div>
+      <ul>
+        <li><a href="#" class="block text-indigo-900">Administrator</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-1 p-8">
+    <header class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">MENGELOLA BUKU</h2>
+      <div class="flex items-center gap-2">
+        <input type="text" placeholder="Cari Buku" class="border px-2 py-1 rounded">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+    </header>
+
+    <table class="w-full bg-white shadow-md rounded text-sm">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="p-2">No</th>
+          <th class="p-2">Foto</th>
+          <th class="p-2">Judul Buku</th>
+          <th class="p-2">Penulis</th>
+          <th class="p-2">Stok</th>
+          <th class="p-2">Kategori</th>
+          <th class="p-2">Status</th>
+          <th class="p-2">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center border-t">
+          <td class="p-2">1.</td>
+          <td class="p-2"><img src="one piece.jpg" alt="Buku 1" class="w-12 h-16 object-cover"></td>
+          <td class="p-2">WHAT I LEARNED FROM THE TREES</td>
+          <td class="p-2">Button Poetry</td>
+          <td class="p-2">20</td>
+          <td class="p-2">Komik</td>
+          <td class="p-2">Tersedia</td>
+          <td class="p-2 space-x-2">✏️ 🗑️</td>
+        </tr>
+        <tr class="text-center border-t">
+          <td class="p-2">2.</td>
+          <td class="p-2"><img src="muscle.jpg" alt="Buku 2" class="w-12 h-16 object-cover"></td>
+          <td class="p-2">Muscle</td>
+          <td class="p-2">Alan Trotter</td>
+          <td class="p-2">15</td>
+          <td class="p-2">Kesehatan</td>
+          <td class="p-2">Tersedia</td>
+          <td class="p-2 space-x-2">✏️ 🗑️</td>
+        </tr>
+        <tr class="text-center border-t">
+          <td class="p-2">3.</td>
+          <td class="p-2"><img src="61rS4ktR59L._SL1250_.jpg" alt="Buku 3" class="w-12 h-16 object-cover"></td>
+          <td class="p-2">A New Program for Graphic Design</td>
+          <td class="p-2">David Reinfurt</td>
+          <td class="p-2">10</td>
+          <td class="p-2">Desain Grafis</td>
+          <td class="p-2">Tersedia</td>
+          <td class="p-2 space-x-2">✏️ 🗑️</td>
+        </tr>
+        <tr class="text-center border-t">
+          <td class="p-2">4.</td>
+          <td class="p-2"><img src="happiness.jpg" alt="Buku 4" class="w-12 h-16 object-cover"></td>
+          <td class="p-2">Happiness by Design</td>
+          <td class="p-2">Paul Dolan, PhD</td>
+          <td class="p-2">12</td>
+          <td class="p-2">Psikologi</td>
+          <td class="p-2">Tersedia</td>
+          <td class="p-2 space-x-2">✏️ 🗑️</td>
+        </tr>
+        <tr class="text-center border-t">
+          <td class="p-2">5.</td>
+          <td class="p-2"><img src="what.jpg" alt="Buku 5" class="w-12 h-16 object-cover"></td>
+          <td class="p-2">What I Learned from the Trees</td>
+          <td class="p-2">L.E. Bowman</td>
+          <td class="p-2">16</td>
+          <td class="p-2">Puisi</td>
+          <td class="p-2">Tersedia</td>
+          <td class="p-2 space-x-2">✏️ 🗑️</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="mt-4 text-right">
+      <button class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">+ Tambah Buku</button>
+    </div>
+  </main>
+</body>
+</html>
