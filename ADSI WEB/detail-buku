@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Buku - SmartLib</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: rgba(0, 0, 0, 0.4) url('https://bukukita.com/babacms/displaybuku/119376_f.jpg') no-repeat center center / cover;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      width: 600px;
+      max-width: 90%;
+      display: flex;
+      gap: 20px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .popup-content img {
+      width: 220px;
+      border-radius: 8px;
+    }
+    .popup-content .info {
+      flex: 1;
+    }
+    .popup-content h3 {
+      margin: 0;
+    }
+    .popup-content .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 22px;
+      color: #333;
+      cursor: pointer;
+    }
+    .tags {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .stars {
+      color: #f5a623;
+      margin: 5px 0;
+    }
+    .btn-beli {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-content">
+    <img src="https://bukukita.com/babacms/displaybuku/119376_f.jpg" alt="One Piece">
+    <div class="info">
+      <span class="close-btn" onclick="window.history.back()">&times;</span>
+      <h3>One Piece</h3>
+      <div class="tags">#Fantasy &nbsp; #Top Rated</div>
+      <p>Rating: <span class="stars">★★★★☆</span> 4.9 (1.2K ulasan)</p>
+      <p>One Piece mengikuti petualangan epik Monkey D. Luffy, seorang pemuda penuh semangat dengan tubuh karet dan mimpi menjadi Raja Bajak Laut. Melalui ikatan persahabatan, pertempuran, dan keyakinan, kisah ini menggambarkan arti kebebasan, impian, dan pencarian jati diri di lautan yang luas dan penuh misteri.</p>
+      <p><strong>Rp45.000</strong></p>
+      <button class="btn-beli">Beli</button>
+    </div>
+  </div>
+</body>
+</html>

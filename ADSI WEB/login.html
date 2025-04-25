@@ -1,158 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Login Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - SmartLib</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+html, body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f8fd;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
+      background-color: #fff;
     }
 
     .login-container {
-      background: white;
-      padding: 40px;
-      border: 2px solid #007bff;
+      width: 40%;
+      max-width: 1300px;
+      padding: 50px;
+    
       border-radius: 10px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
-    .login-container h2 {
+    .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  z-index: 999;
+}
+
+    h2 {
       text-align: center;
+      margin-top: 40px;
       margin-bottom: 10px;
     }
 
-    .login-container p {
+    p.subtitle {
       text-align: center;
-      color: #666;
+      color: #777;
+      font-size: 14px;
       margin-bottom: 30px;
     }
 
     label {
       display: block;
+      font-weight: bold;
       margin-bottom: 5px;
-      color: #673ab7;
-      font-weight: 600;
+      margin-top: 15px;
+      color: #333;
     }
 
     input[type="email"],
     input[type="password"] {
       width: 100%;
-      padding: 12px;
-      border: 2px solid #ccc;
+      padding: 10px;
+      border: 2px solid #a68dfb;
       border-radius: 8px;
-      margin-bottom: 20px;
       font-size: 14px;
     }
 
-    .login-container a {
-      color: #7c4dff;
+    .forgot-link {
+      font-size: 12px;
+      text-align: right;
+      display: block;
+      margin-top: 5px;
+      color: #7366ff;
       text-decoration: none;
-      font-size: 14px;
-      float: right;
     }
 
-    .btn-login {
-      width: 100%;
-      padding: 12px;
+    .login-btn {
+      width: 105%;
       background-color: #ff7043;
       color: white;
+      padding: 12px;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
-    .btn-google {
+    .google-btn {
+      margin-top: 15px;
       width: 100%;
       padding: 12px;
-      background: white;
-      color: #ff7043;
       border: 2px solid #ff7043;
       border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
+      background-color: white;
+      color: #ff7043;
+      font-weight: bold;
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
+      cursor: pointer;
     }
 
-    .btn-google img {
-      width: 20px;
-      margin-right: 10px;
+    .google-btn i {
+      font-size: 16px;
+      color: #db4437;
     }
 
-    .register {
-      text-align: center;
+    .footer-text {
       margin-top: 20px;
-      font-size: 14px;
+      text-align: left;
+      font-size: 13px;
+      color: #777;
     }
 
-    .register a {
-      color: #3f51b5;
+    .footer-text a {
+      color: #7366ff;
+      text-decoration: none;
       font-weight: bold;
     }
+
+    input[type="text"]#password {
+  border: 2px solid #a68dfb;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+}
+
   </style>
 </head>
 <body>
+  <a href="http://localhost/SmartLib/ADSI%20WEB/discover" class="back-button"><i class="fas fa-arrow-left"></i></a>
   <div class="login-container">
-    <h2>Hello! Welcome back.</h2>
-    <p>Login with the data you entered during Registration.</p>
+    <h2>Hallo! Selamat Datang.</h2>
+    <p class="subtitle">Masuk dengan data yang telah kamu daftarkan.</p>
 
-    <form onsubmit="validateLogin(event)">
-      <label for="email">Email Address <span style="color:red">*</span></label>
-      <input type="email" id="email" name="email" placeholder="gojosatoru.com" required>
+    <form>
+      <label for="email">Alamat Email<span style="color: red">*</span></label>
+      <input type="email" id="email" placeholder="gojosatoru@gmail.com" required>
 
-      <label for="password">Password <span style="color:red">*</span></label>
-      <input type="password" id="password" name="password" required>
+      <label for="password">Kata Sandi<span style="color: red">*</span></label>
+      <div style="position: relative; width: 105%;">
+        <input type="password" id="password" placeholder="********" required style="padding-right: 40px; width: 100%; box-sizing: border-box; border: 2px solid #a68dfb; border-radius: 8px; font-size: 14px; padding: 10px;">
+        <i class="fas fa-eye-slash" id="togglePassword" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+      </div>
+      
+      
 
-      <a href="#">Forgot Password?</a>
+      <a href="#" class="forgot-link">Lupa Sandi?</a>
 
-      <button type="submit" class="btn-login">Login Now</button>
+      <button class="login-btn" type="submit">Masuk Sekarang</button>
 
-      <button type="button" class="btn-google">
-        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google icon">
-        Continue with Google
-      </button>
-
-      <div class="register">
-        Don’t have an Account? <a href="sign-in.html">REGISTER</a>
+      <div class="google-btn" onclick="googleLogin()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c1/20190923152039%21Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png" alt="Google" width="20" height="20" style="margin-right: 8px;" />
+        Lanjutkan Dengan Google        
       </div>
     </form>
+
+    <p class="footer-text">
+      Belum punya akun? <a href="http://localhost/SmartLib/ADSI%20WEB/sign-in.html">DAFTAR</a>
+    </p>
   </div>
-
   <script>
-    function validateLogin(event) {
-      event.preventDefault();
-
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-      if (!emailPattern.test(email)) {
-        alert("Email tidak valid. Contoh: nama@email.com");
-        return;
-      }
-
-      if (password.length < 6) {
-        alert("Password harus minimal 6 karakter.");
-        return;
-      }
-      window.location.href = 'dashboard.html';
-    }
+    const toggle = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+  
+    toggle.addEventListener("click", function () {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+  
+      this.classList.toggle("fa-eye");
+      this.classList.toggle("fa-eye-slash");
+    });
   </script>
+  <script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault(); // agar tidak reload form default
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+  
+      // Validasi sederhana
+      if (email && password) {
+        window.location.href = "http://localhost/SmartLib/ADSI%20WEB/dashboard.html";
+      } else {
+        alert("Harap isi email dan kata sandi.");
+      }
+    });
+  </script>
+  
+
+  <!-- Firebase App (core SDK)
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script>
+  // Config dari Firebase Console
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then(result => {
+        const user = result.user;
+        alert("Selamat datang, " + user.displayName);
+        // bisa redirect ke halaman utama juga
+        // window.location.href = "/dashboard";
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  }
+</script> -->
+
 </body>
 </html>

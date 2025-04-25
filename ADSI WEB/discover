@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartLib</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    .active {
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1350px;
+      margin: auto;
+      padding: 15px 30px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .nav-links .masuk {
+      color: #7366ff;
+      font-weight: bold;
+    }
+
+    .nav-links .daftar {
+      background-color: #ff7043;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 35px 0;
+    }
+
+    .hero-left-img {
+      margin-top: -80px;
+      margin-left: -100px;
+      width: 100px;
+    }
+
+    .hero-right-img {
+        margin-top: 80px;
+        margin-right: -100px;
+      width: 100px;
+    }
+
+    .hero-text {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .search-input {
+      padding: 8px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 14px;
+      width: 250px;
+    }
+
+    .search-button {
+      margin-left: 10px;
+      padding: 8px 20px;
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+   
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
+
+    .how-it-works {
+      width: 60%;
+    }
+
+    .section-title {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.section-title-line {
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.section-title-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+    .steps-container {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .step {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .step img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .step-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .step-description {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .step-divider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 1px;
+      background-color: #ddd;
+    }
+
+    /* Bottom section divider */
+    .bottom-divider {
+      width: 100%;
+      height: 1px;
+      background-color: #ddd;
+      margin-top: 20px;
+    }
+
+    .contact-section {
+      width: 35%;
+      text-align: right;
+      margin-top: 180px;
+    }
+
+    .contact h3 {
+      color: #7366ff;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .contact-info {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons img {
+      width: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="SmartLib Logo">
+        <h2>SmartLib</h2>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="active" >Discover</a>
+        <a href="#">Tentang</a>
+        <a href="http://localhost/SmartLib/ADSI%20WEB/login.html" class="masuk">MASUK</a>
+        <a href="http://localhost/SmartLib/ADSI%20WEB/sign-in.html" class="daftar">DAFTAR</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="discover1.png" alt="Bookshelf" class="hero-left-img">
+      <div class="hero-text">
+        <h1>Temukan bacaan favoritmu<br>berikutnya</h1>
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Cari Buku" class="search-input">
+          <button class="search-button">Cari</button>
+        </div>
+      </div>
+      <img src="discover2.png" alt="People Sharing" class="hero-right-img">
+    </div>
+
+    
+
+    <!-- Main Content Section with How it Works and Contact -->
+    <div class="main-content">
+      <!-- How it Works Section on the LEFT -->
+      <div class="how-it-works">
+        <!-- Title with divider lines on both sides -->
+        <div class="section-title">
+            <div class="section-title-line"></div>
+            <h3 class="section-title-text">Bagaimana SmartLib bekerja</h3>
+            <div class="section-title-line"></div>
+          </div>
+          
+        
+        <div class="steps-container">
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/8922/8922037.png" alt="Langkah 1">
+            <h4 class="step-title">Langkah 1</h4>
+            <p class="step-description">
+              Masukkan judul atau kategori buku yang sesuai favorit atau periksa riwayat bacaanmu
+            </p>
+          </div>
+          
+          <div class="step-divider"></div>
+          
+          <div class="step">
+            <img src="discover3.png" alt="Langkah 2">
+            <h4 class="step-title">Langkah 2</h4>
+            <p class="step-description">
+              Pilih buku dan tambahkan ke daftar bacaan. Kami menambahkan lebih dekat ke perpustakaan membaca baru
+            </p>
+          </div>
+        </div>
+        
+        <!-- Bottom divider line -->
+        <div class="bottom-divider"></div>
+      </div>
+      
+      <!-- Contact Section on the RIGHT -->
+      <div class="contact-section">
+        <div class="contact">
+          <h3>Hubungi kami:</h3>
+          <div class="contact-info">
+            <p>Alamat: columbia Sc</p>
+            <p>Email: SmartLib@gmail.com</p>
+          </div>
+          <div class="social-icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector(".search-button").addEventListener("click", function () {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        // Ganti ke halaman hasil pencarian kamu
+        window.location.href = "http://localhost/SmartLib/ADSI%20WEB/search-discover"; //+ encodeURIComponent(query);
+      } else {
+        alert("Masukkan kata kunci pencarian.");
+      }
+    });
+  </script>
+  
+</body>
+</html>

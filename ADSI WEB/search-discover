@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLib</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 1350px;
+            margin: auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-button {
+            font-size: 32px;
+            color: #333;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+        
+        .search-container {
+            display: flex;
+            flex-grow: 2;
+            margin: 0 20px;
+        }
+        
+        .category-dropdown {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            background-color: white;
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-left: none;
+            font-size: 14px;
+        }
+        
+        .search-button {
+            padding: 8px 16px;
+            background-color: #FF7A45;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        
+        
+        .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .nav-links .masuk {
+      color: #7366ff;
+      font-weight: bold;
+    }
+
+    .nav-links .daftar {
+      background-color: #ff7043;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+        
+        .search-results {
+            margin-top: 20px;
+        }
+        
+        .search-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .book-cover {
+            width: 50%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .book-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .book-author {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Pop-up dan Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    text-align: center;
+    font-size: 14px;
+}
+
+.popup-content h3 {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.btn-cancel {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-ok {
+    background: #4fc3f7;
+    color: #fff;
+    border: none;
+    padding: 8px 26px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="http://localhost/SmartLib/ADSI%20WEB/discover" class="back-button"><i class="fas fa-arrow-left"></i></a>
+            <div class="logo">SmartLib</div>
+            <div class="search-container">
+                <select class="category-dropdown">
+                    <option>Semua Kategori</option>
+                    <option>Gratis</option>
+                    <option>Berbayar</option>
+                </select>
+                <input type="text" class="search-input" placeholder="Temukan buku yang kamu cari...">
+                <button class="search-button">Cari</button>
+            </div>
+            <div class="nav-links">
+                <a href="http://localhost/SmartLib/ADSI%20WEB/discover" class="active" >Discover</a>
+        <a href="#">Tentang</a>
+        <a href="http://localhost/SmartLib/ADSI%20WEB/login.html" class="masuk">MASUK</a>
+        <a href="http://localhost/SmartLib/ADSI%20WEB/sign-in.html" class="daftar">DAFTAR</a>
+            </div>
+        </div>
+        
+        <div class="search-results">
+            <h2 class="search-title">Hasil pencarian untuk "Komik"</h2>
+            
+            <div class="book-grid">
+                <!-- Row 1 -->
+                <div class="book-item">
+                    <img src="https://awsimages.detik.net.id/community/media/visual/2024/04/20/top-7-cover-terbaik-manga-one-piece-6.webp?w=700&q=90" alt="One Piece" class="book-cover">
+                    <h3 class="book-title">What I Learned...</h3>
+                    <p class="book-author">L. E. Bowman</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://bukukita.com/babacms/displaybuku/96604_f.jpg" alt="Simple Love" class="book-cover">
+                    <h3 class="book-title">Simple Love</h3>
+                    <p class="book-author">Chiki & Dan Heath</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://inc.mizanstore.com/aassets/img/com_cart/produk/connect-1.jpg" alt="Connect" class="book-cover">
+                    <h3 class="book-title">Atomic Habits</h3>
+                    <p class="book-author">James Clear</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://elexmedia.s3.amazonaws.com/product/9786020255217.jpg" alt="Naruto" class="book-cover">
+                    <h3 class="book-title">Naruto</h3>
+                    <p class="book-author">Kishi Masashi</p>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="book-item">
+                    <img src="https://awsimages.detik.net.id/community/media/visual/2024/04/20/top-7-cover-terbaik-manga-one-piece-6.webp?w=700&q=90" alt="One Piece" class="book-cover">
+                    <h3 class="book-title">What I Learned...</h3>
+                    <p class="book-author">L. E. Bowman</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://bukukita.com/babacms/displaybuku/96604_f.jpg" alt="Simple Love" class="book-cover">
+                    <h3 class="book-title">Simple Love</h3>
+                    <p class="book-author">Chiki & Dan Heath</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://inc.mizanstore.com/aassets/img/com_cart/produk/connect-1.jpg" alt="Connect" class="book-cover">
+                    <h3 class="book-title">Atomic Habits</h3>
+                    <p class="book-author">James Clear</p>
+                </div>
+                
+                <div class="book-item">
+                    <img src="https://elexmedia.s3.amazonaws.com/product/9786020255217.jpg" alt="Naruto" class="book-cover">
+                    <h3 class="book-title">Naruto</h3>
+                    <p class="book-author">Kishi Masashi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Overlay dan Pop-up -->
+<div id="overlay" class="overlay hidden"></div>
+
+<div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Konfirmasi</h3>
+    <p>Anda harus login terlebih dahulu.</p>
+    <div class="popup-buttons">
+      <button onclick="closePopup()" class="btn-cancel">BATAL</button>
+      <button onclick="redirectLogin()" class="btn-ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+    const bookItems = document.querySelectorAll('.book-item');
+    const overlay = document.getElementById('overlay');
+    const popup = document.getElementById('popup');
+  
+    bookItems.forEach(item => {
+      item.addEventListener('click', () => {
+        overlay.classList.remove('hidden');
+        popup.classList.remove('hidden');
+      });
+    });
+  
+    function closePopup() {
+      overlay.classList.add('hidden');
+      popup.classList.add('hidden');
+    }
+  
+    function redirectLogin() {
+      // Ubah ke URL login kamu
+      window.location.href = "http://localhost/SmartLib/ADSI%20WEB/login.html";
+    }
+  </script>
+  
+
+</body>
+</html>

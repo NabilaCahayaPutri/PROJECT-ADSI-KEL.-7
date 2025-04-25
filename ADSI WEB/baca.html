@@ -1,90 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Read Book - SmartLib</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baca Buku - SmartLib</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fffdf7;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
+      background-color: #f0f2f7;
     }
 
-    .navbar {
-      background-color: #ff7043;
-      color: white;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .header {
+      background-color: #e4e9f7;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
     }
 
-    .navbar h1 {
-      font-size: 20px;
-      margin: 0;
+    .header img {
+      height: 40px;
     }
 
-    .navbar a {
-      color: white;
+    .back-icon {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.5rem;
+      color: #000;
       text-decoration: none;
+    }
+
+    .book-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .book-title {
+      text-align: center;
       font-weight: bold;
+      margin-bottom: 1rem;
     }
 
     .book-content {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-
-    .book-content h2 {
-      margin-bottom: 20px;
-      color: #ff7043;
-    }
-
-    .book-content p {
+      font-size: 15px;
+      line-height: 1.6;
       text-align: justify;
     }
 
-    .back-btn {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #e0e0e0;
-      color: #333;
-      text-decoration: none;
-      border-radius: 8px;
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .nav-buttons i {
+      font-size: 1.2rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-  <div class="navbar">
-    <h1>📖 Reading Mode</h1>
-    <a href="index.html">← Back to Dashboard</a>
+  <div class="header">
+    <a href="library.html" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+    <img src="logo.png" alt="SmartLib Logo">
   </div>
 
-  <div class="book-content">
-    <h2>Atomic Habits</h2>
-    <p>
-      Bab 1: Kekuatan Kebiasaan
-      <br><br>
-      Perubahan kecil bisa memberikan dampak yang besar. Itulah kekuatan dari kebiasaan. Jika Anda membaik 1% setiap hari selama satu tahun, maka Anda akan menjadi 37 kali lebih baik pada akhir tahun...
-    </p>
-
-    <p>
-      Bab 2: Bagaimana Kebiasaan Terbentuk
-      <br><br>
-      Setiap kebiasaan dimulai dari pemicu. Lalu dilanjutkan dengan keinginan, respon, dan hadiah. Pola ini disebut dengan habit loop...
-    </p>
-
-    <a class="back-btn" href="dashboard.html">← Kembali ke Dashboard</a>
+  <div class="book-container">
+    <div class="book-title">Vol. 1 - Pembentukan Bajak Laut Spade</div>
+    <div id="content" class="book-content">
+      Memuat halaman...
+    </div>
+    <div class="nav-buttons">
+      <i class="fas fa-angle-left" onclick="prevPage()"></i>
+      <i class="fas fa-angle-right" onclick="nextPage()"></i>
+    </div>
   </div>
 
+  <script>
+    let currentPage = 1;
+    const bookId = "spade001"; // contoh ID buku
+
+    function loadPage(page) {
+      fetch(`/api/book/${bookId}?page=${page}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('content').innerText = data.content;
+          currentPage = page;
+        })
+        .catch(() => {
+          document.getElementById('content').innerText = 'Halaman tidak ditemukan.';
+        });
+    }
+
+    function prevPage() {
+      if (currentPage > 1) loadPage(currentPage - 1);
+    }
+
+    function nextPage() {
+      loadPage(currentPage + 1);
+    }
+
+    // Load first page on start
+    loadPage(1);
+  </script>
 </body>
 </html>

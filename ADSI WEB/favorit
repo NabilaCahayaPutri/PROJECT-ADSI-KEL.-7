@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Favorit - SmartLib</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9fc;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 220px;
+      background-color: #ffffff;
+      padding: 1.5rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #eee;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .menu a {
+      color: #444;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 15px;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .menu a.active,
+    .menu a:hover {
+      background-color: #f0f0ff;
+      color: #5c6ac4;
+    }
+
+    .menu-divider {
+      margin: 1.5rem 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .main {
+      margin-left: 220px;
+    }
+
+    .top-bg {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .top-left {
+      background-color: #E6EAF8;
+      border-bottom-left-radius: 80px;
+      padding: 2rem 3rem;
+      flex: 1;
+    }
+
+    .top-left h2 {
+      margin: 0;
+    }
+
+    .profile-box {
+      background-color: #CFD6FA;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .profile-box img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 2rem 3rem;
+    }
+
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .book {
+      text-align: center;
+    }
+
+    .book img {
+      width: 50%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-title {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .book-author {
+      font-size: 11px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="logo">
+        <img src="logo.png" alt="SmartLib Logo">
+      </div>
+      <div class="menu">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="favorite.html" class="active"><i class="fas fa-heart"></i> Favorit</a>
+        <a href="saran-buku.html"><i class="fas fa-book-open"></i> Saran Buku</a>
+      </div>
+      <div class="menu-divider"></div>
+    </div>
+    <div class="menu" style="margin-top: auto;">
+      <a href="setting.html"><i class="fas fa-cog"></i> Pengaturan</a>
+      <a href="logout.html"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+    </div>
+  </div>
+  <div class="main">
+    <div class="top-bg">
+      <div class="top-left">
+        <h2>Favorit</h2>
+      </div>
+      <div class="profile-box">
+        <img src="profile.jpg" alt="User">
+        <span>Gojo Satoru</span>
+        <i class="fas fa-caret-down"></i>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="book-list">
+        <!-- 12 Buku -->
+        <div class="book"><img src="one piece2.jpeg"><div class="book-title">What I Learned...</div><div class="book-author">L. E. Bowman</div></div>
+        <div class="book"><img src="https://bukukita.com/babacms/displaybuku/96604_f.jpg"><div class="book-title">Made to Stick</div><div class="book-author">Chip & Dan Heath</div></div>
+        <div class="book"><img src="https://inc.mizanstore.com/aassets/img/com_cart/produk/connect-1.jpg"><div class="book-title">Atomic Habits</div><div class="book-author">James Clear</div></div>
+        <div class="book"><img src="https://elexmedia.s3.amazonaws.com/product/9786020255217.jpg"><div class="book-title">Connect</div><div class="book-author">Manatsu Suzuki</div></div>
+        <div class="book"><img src="https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg"><div class="book-title">The Subtle Art...</div><div class="book-author">Mark Manson</div></div>
+        <div class="book"><img src="https://images.tokopedia.net/img/cache/500-square/product-1/2017/11/16/1671407/1671407_87c27654-40ae-4f45-826d-77ae9ed6bcd9.jpg.webp?ect=4g"><div class="book-title">Happiness by Design</div><div class="book-author">Paul Dolan</div></div>
+        <div class="book"><img src="https://m.media-amazon.com/images/I/41o8Y4Q3FfL._SY445_SX342_.jpg"><div class="book-title">A New Program...</div><div class="book-author">David Reinfurt</div></div>
+        <div class="book"><img src="https://m.media-amazon.com/images/I/41o8Y4Q3FfL._SY445_SX342_.jpg"><div class="book-title">A New Program...</div><div class="book-author">David Reinfurt</div></div>
+        <div class="book"><img src="https://m.media-amazon.com/images/I/71ZtF6rSKYL._AC_UY218_.jpg"><div class="book-title">Muscle</div><div class="book-author">Alan Trotter</div></div>       
+        <div class="book"><img src="https://images.tokopedia.net/img/cache/500-square/product-1/2017/11/16/1671407/1671407_87c27654-40ae-4f45-826d-77ae9ed6bcd9.jpg.webp?ect=4g"><div class="book-title">Made to Stick</div><div class="book-author">Chip & Dan Heath</div></div>
+        <div class="book"><img src="https://m.media-amazon.com/images/I/91KS98kIaVL._AC_UY218_.jpg"><div class="book-title">Happiness by Design</div><div class="book-author">Paul Dolan</div></div>
+        <div class="book"><img src="https://m.media-amazon.com/images/I/41o8Y4Q3FfL._SY445_SX342_.jpg"><div class="book-title">Muscle</div><div class="book-author">Alan Trotter</div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
